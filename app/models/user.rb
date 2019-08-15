@@ -3,10 +3,10 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
-#  name            :string
+#  name            :text
 #  email           :text
-#  password_digest :string
 #  admin           :boolean
+#  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #

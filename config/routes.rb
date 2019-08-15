@@ -12,12 +12,19 @@
 
 Rails.application.routes.draw do
 
-  resources :flights
-  resources :planes
-resources :users, :only => [:new, :create, :update, :index]
+#   resources :flights
+#   resources :planes
+# resources :users, :only => [:new, :create, :update, :index]
 
 
-get '/login' => 'session#new'
-post '/login' => 'session#create'
-delete '/login' => 'session#destroy'
+# get '/login' => 'session#new'
+# post '/login' => 'session#create'
+# delete '/login' => 'session#destroy'
+
+namespace :api do
+  post 'user/token' => 'user_token#create'
+  get 'users/current' => 'users#current'
+  resources :pages, only: %i(index show)
+end
+
 end

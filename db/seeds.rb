@@ -25,3 +25,13 @@ p2.flights << f3
 # Flights and users
 f1.users << u1 << u2
 f2.users << u2 << u3
+
+# testing user authe
+
+Page.destroy_all
+puts "creating pages"
+Page.create :title => "Search Flights", :content => "Search for Flights", allow_unauth: true
+Page.create :title => "Book Flights", :content => "Booking Flights coming soon", allow_unauth: false
+Page.create :title => "Create Planes", :content => "Create planes", allow_unauth: false
+Page.create :title => "Create Flights", :content => "Create Flights", allow_unauth: false
+

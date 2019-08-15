@@ -9,18 +9,30 @@ Plane.destroy_all
 puts "creating planes"
 p1 = Plane.create :name => "A380", :row => '40', :column => '6'
 p2 = Plane.create :name => "B747", :row => '50', :column => '8'
+p3 = Plane.create :name => "B747", :row => '50', :column => '8'
+p4 = Plane.create :name => "A380", :row => '50', :column => '8'
 
 Flight.destroy_all
 puts "creating flights"
 f1 = Flight.create :flight_number => "A12345", :origin => "Sydney", :destination => "Melbourne", :date => "12-05-2019"
 f2 = Flight.create :flight_number => "A99999", :origin => "Perth", :destination => "Melbourne", :date => "15-05-2019"
-f3 = Flight.create :flight_number => "B00000", :origin => "Brisbane", :destination => "Darwin", :date => "12-05-2019"
+f3 = Flight.create :flight_number => "B00001", :origin => "Brisbane", :destination => "Darwin", :date => "12-05-2019"
+f4 = Flight.create :flight_number => "C00222", :origin => "Brisbane", :destination => "Darwin", :date => "16-15-2019"
+f5 = Flight.create :flight_number => "D00033", :origin => "Brisbane", :destination => "Darwin", :date => "12-15-2019"
+f6 = Flight.create :flight_number => "E00005", :origin => "Sydney", :destination => "Melbourne", :date => "11-15-2019"
+f7 = Flight.create :flight_number => "F00066", :origin => "Brisbane", :destination => "Darwin", :date => "16-15-2019"
+f8 = Flight.create :flight_number => "G00022", :origin => "Perth", :destination => "Melbourne", :date => "18-25-2019"
+f9 = Flight.create :flight_number => "H00044", :origin => "Brisbane", :destination => "Perth", :date => "19-25-2019"
 
 puts "associations"
 
 # Planes and Flights
-p1.flights << f1 << f2
-p2.flights << f3
+p1.flights << f1 << f2 << f8
+p2.flights << f3 << f8 << f9
+p3.flights << f4 << f5
+p4.flights << f6 << f7
+
+
 
 # Flights and users
 f1.users << u1 << u2
